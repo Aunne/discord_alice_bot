@@ -4,8 +4,9 @@ import aiml
 import asyncio
 import os
 
-assert "TOKEN" in os.environ
-TOKEN = os.getenv("TOKEN")
+assert os.path.isfile("TOKEN")
+with open("TOKEN", "r") as file:
+    TOKEN = file.read().strip()
 
 #  載入Alice核心
 os.chdir('alice')
@@ -61,3 +62,4 @@ async def chat(ctx, *args):
 
 # 執行機器人
 bot.run(TOKEN)
+

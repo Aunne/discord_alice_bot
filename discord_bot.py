@@ -14,7 +14,6 @@ alice = aiml.Kernel()
 alice.learn("startup.xml")
 alice.respond('LOAD ALICE')
 
-client = discord.Client()
 bot = commands.Bot(command_prefix="//")  # 設定//為指令
 
 @bot.event
@@ -61,5 +60,6 @@ async def chat(ctx, *args):
     await ctx.send(RetMsg)
 
 # 執行機器人
-bot.run(TOKEN)
-
+if __name__ == "__main__":
+    bot.run(TOKEN)
+    
